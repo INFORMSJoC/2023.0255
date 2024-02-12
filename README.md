@@ -31,7 +31,7 @@ Below is the BibTex for citing this snapshot of the respoitory.
 
 ## Data
 
-The [data](data) directory contains the 950 instances that were used in this research (stored as .bin files). These 950 instances were originally collected in .lp format from strIPlib in early 2020. Using the “instanceformulation_to_instancegraph.py” script in the “scripts” directory, these .lp files were then converted to .bin files, where the .bin files store the graph-based representations of the formulations given in the .lp files. In general, the file “instanceformulation_to_instancegraph.py” in the “scripts” directory will convert .lp files to their graph-based representation using Deep Graph Library (following the methodology outlined in the paper).
+The [data](data) directory contains the 950 instances that were used in this research (stored as .bin files). These 950 instances were originally collected in .lp format from strIPlib in early 2020. Using the [instanceformulation_to_instancegraph.py][scripts/instanceformulation_to_instancegraph.py] script in the [scripts](scripts) directory, these .lp files were then converted to .bin files, where the .bin files store the graph-based representations of the formulations given in the .lp files. In general, the file “instanceformulation_to_instancegraph.py” in the “scripts” directory will convert .lp files to their graph-based representation using Deep Graph Library (following the methodology outlined in the paper).
 
 ## Reproducing Results
 
