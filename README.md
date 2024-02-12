@@ -5,7 +5,7 @@
 This archive is distributed in association with the [INFORMS Journal on
 Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](LICENSE).
 
-The purpose of this repository is to share the data, model, and code used in the research reported on in the paper 
+The purpose of this repository is to share the data and results reported on in the paper 
 [A Graph-based Approach for Relating Integer Programs](https://doi.org/10.1287/ijoc.2023.0255) by Z. Steever, K. Hunt, M. Karwan, J. Yuan, and C. Murray. 
 
 ## Cite
