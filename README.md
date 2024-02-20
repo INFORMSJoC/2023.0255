@@ -1,106 +1,38 @@
 [![INFORMS Journal on Computing Logo](https://INFORMSJoC.github.io/logos/INFORMS_Journal_on_Computing_Header.jpg)](https://pubsonline.informs.org/journal/ijoc)
 
-# CacheTest
+# A Graph-based Approach for Relating Integer Programs
 
 This archive is distributed in association with the [INFORMS Journal on
 Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](LICENSE).
 
-The software and data in this repository are a snapshot of the software and data
-that were used in the research reported on in the paper 
-[This is a Template](https://doi.org/10.1287/ijoc.2019.0000) by T. Ralphs. 
-The snapshot is based on 
-[this SHA](https://github.com/tkralphs/JoCTemplate/commit/f7f30c63adbcb0811e5a133e1def696b74f3ba15) 
-in the development repository. 
-
-**Important: This code is being developed on an on-going basis at 
-https://github.com/tkralphs/JoCTemplate. Please go there if you would like to
-get a more recent version or would like support**
+The purpose of this repository is to share the data and results reported on in the paper 
+[A Graph-based Approach for Relating Integer Programs](https://doi.org/10.1287/ijoc.2023.0255) by Z. Steever, K. Hunt, M. Karwan, J. Yuan, and C. Murray. 
 
 ## Cite
 
 To cite the contents of this repository, please cite both the paper and this repo, using their respective DOIs.
 
-https://doi.org/10.1287/ijoc.2019.0000
+https://doi.org/10.1287/ijoc.2023.0255
 
-https://doi.org/10.1287/ijoc.2019.0000.cd
+https://doi.org/10.1287/ijoc.2023.0255.cd
 
 Below is the BibTex for citing this snapshot of the respoitory.
 
 ```
-@article{CacheTest,
-  author =        {T. Ralphs},
+@article{ILPGraphs,
+  author =        {Steever, Zachary and Hunt, Kyle and Karwan, Mark and Yuan, Junsong and Murray, Chase},
   publisher =     {INFORMS Journal on Computing},
-  title =         {{CacheTest}},
-  year =          {2020},
-  doi =           {10.1287/ijoc.2019.0000.cd},
-  url =           {https://github.com/INFORMSJoC/2019.0000},
+  title =         {{A Graph-based Approach for Relating Integer Programs}},
+  year =          {2024},
+  doi =           {10.1287/ijoc.2023.0255.cd},
+  note =          {Available for download at {https://github.com/INFORMSJoC/2023.0255}},
 }  
 ```
 
-## Description
+## Data
 
-The goal of this software is to demonstrate the effect of cache optimization.
+The [data](data) directory contains the 950 instances that were used in this research. These 950 instances were originally collected in .lp format from [strIPlib](https://striplib.or.rwth-aachen.de/login/?next=/browser/) in early 2020. Using the [instanceformulation_to_instancegraph.py](scripts/instanceformulation_to_instancegraph.py) script, each .lp file (i.e., instance) was converted to its graph-based representation (following the methodology outlined in the paper) and stored as a .bin file. In general, the file [instanceformulation_to_instancegraph.py](scripts/instanceformulation_to_instancegraph.py) in the [scripts](scripts) directory will convert .lp files to their graph-based representation as defined in this research.
 
-## Building
+## Reproducing Results
 
-In Linux, to build the version that multiplies all elements of a vector by a
-constant (used to obtain the results in [Figure 1](results/mult-test.png) in the
-paper), stepping K elements at a time, execute the following commands.
-
-```
-make mult
-```
-
-Alternatively, to build the version that sums the elements of a vector (used
-to obtain the results [Figure 2](results/sum-test.png) in the paper), stepping K
-elements at a time, do the following.
-
-```
-make clean
-make sum
-```
-
-Be sure to make clean before building a different version of the code.
-
-## Results
-
-Figure 1 in the paper shows the results of the multiplication test with different
-values of K using `gcc` 7.5 on an Ubuntu Linux box.
-
-![Figure 1](results/mult-test.png)
-
-Figure 2 in the paper shows the results of the sum test with different
-values of K using `gcc` 7.5 on an Ubuntu Linux box.
-
-![Figure 1](results/sum-test.png)
-
-## Replicating
-
-To replicate the results in [Figure 1](results/mult-test), do either
-
-```
-make mult-test
-```
-or
-```
-python test.py mult
-```
-To replicate the results in [Figure 2](results/sum-test), do either
-
-```
-make sum-test
-```
-or
-```
-python test.py sum
-```
-
-## Ongoing Development
-
-This code is being developed on an on-going basis at the author's
-[Github site](https://github.com/tkralphs/JoCTemplate).
-
-## Support
-
-For support in using this software, submit an
-[issue](https://github.com/tkralphs/JoCTemplate/issues/new).
+The [results](results) directory contains the trained graph neural network ([trained_GCN.pt](results/trained_GCN.pt)) and the script to test the model ([test_GCN.py](results/test_GCN.py)). The documents [train_set.csv](results/train_set.csv) and [test_set.csv](results/test_set.csv) contain the paths to the instances (in the [data](data) directory) that were used for training (760 instances) and testing (190 instances) the GCN. Depending on whether the train set or test set is being scored using the trained GCN, either [train_set.csv](results/train_set.csv) or [test_set.csv](results/test_set.csv) will be read into [test_GCN.py](results/test_GCN.py) allowing the script to automatically extract the needed instances from the [data](data) directory.
